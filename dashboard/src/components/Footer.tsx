@@ -68,7 +68,7 @@ export default function Footer() {
               onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-secondary)')}
               onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)')}
             >
-              <ExternalLink size={14} />
+              <Github size={14} />
               <span className="font-mono" style={{ fontSize: '12px' }}>github.com/carlamosi/eeg-spaceflight-analysis</span>
             </a>
 
