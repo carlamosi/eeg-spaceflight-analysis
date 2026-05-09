@@ -5,7 +5,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   ReferenceLine, ResponsiveContainer, BarChart, Bar, Cell, LabelList,
 } from 'recharts';
-import { ml_ROC, ml_AUC, featureImportance } from '../data/demoData';
+import { ml_ROC, ml_AUC, featureImportance } from '../data/empiricalData';
 
 // Merge ROC data into one array for multi-line chart
 const rocData = ml_ROC.rf.map((pt, i) => ({

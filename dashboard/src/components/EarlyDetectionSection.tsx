@@ -6,7 +6,7 @@ import {
   ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   ReferenceLine, ReferenceArea, ResponsiveContainer,
 } from 'recharts';
-import { TAR_timeseries, performance_timeseries, alertThreshold, T_biomarker, T_behavior, detectionGap } from '../data/demoData';
+import { TAR_timeseries, performance_timeseries, alertThreshold, T_biomarker, T_behavior, detectionGap } from '../data/empiricalData';
 
 // Merge TAR + performance into one array, sampled every 3 points
 const mergedData = TAR_timeseries

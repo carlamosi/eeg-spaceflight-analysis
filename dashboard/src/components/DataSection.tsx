@@ -7,8 +7,8 @@ import {
   ResponsiveContainer, BarChart, Bar, Legend,
 } from 'recharts';
 import {
-  TAR_timeseries, alertThreshold, P300_data, bandPower_data,
-} from '../data/demoData';
+  TAR_timeseries, alertThreshold, P300_data, astronaut_alpha_power,
+} from '../data/empiricalData';
 
 // Stylized SVG scalp topography for Alpha DMN power
 function AlphaTopography() {
@@ -141,7 +141,7 @@ export default function DataSection() {
               }}
             >
               <span className="font-dm" style={{ fontSize: '15px', color: 'var(--text-primary)' }}>
-                Dataset: HDBR (Head-Down Tilt Bed Rest)
+                Dataset: NEUROSPAT ISS (Pusil et al. 2023) & PhysioNet
               </span>
               <span
                 className="font-mono"
@@ -154,11 +154,11 @@ export default function DataSection() {
                   padding: '2px 8px',
                 }}
               >
-                NASA/ESA Terrestrial Analog
+                Empirical Research Data
               </span>
             </div>
             <p className="font-dm" style={{ fontSize: '14px', color: 'var(--text-secondary)', maxWidth: '680px' }}>
-              The official terrestrial analog for microgravity used in spaceflight neuroscience research. Directly compared to NEUROSPAT ISS data in Scientific Reports (2025).
+              Integrating actual findings from 5 astronauts aboard the International Space Station (Neurospat experiment) alongside validated fatigue trial datasets.
             </p>
           </motion.div>
 
@@ -268,17 +268,17 @@ export default function DataSection() {
               </ResponsiveContainer>
             </ChartWrapper>
 
-            {/* Panel 4: Band power distribution */}
+            {/* Panel 4: Astronaut Alpha Power */}
             <ChartWrapper
-              title="Band Power: Baseline vs. Cognitive Load"
-              caption="Relative power across 5 frequency bands · HDBR resting vs. task conditions"
+              title="Alpha Power: Baseline vs In-flight (5 Astronauts)"
+              caption="Significant reduction (p < 0.001) in Default Mode Network · Source: Pusil et al. 2023"
               height={240}
             >
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={bandPower_data} margin={{ top: 8, right: 16, bottom: 8, left: 0 }}>
+                <BarChart data={astronaut_alpha_power} margin={{ top: 8, right: 16, bottom: 8, left: 0 }}>
                   <CartesianGrid stroke="var(--border)" strokeDasharray="3 3" vertical={false} />
                   <XAxis
-                    dataKey="band"
+                    dataKey="subject"
                     tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}
                     tickLine={false}
                     axisLine={false}
@@ -298,8 +298,8 @@ export default function DataSection() {
                     iconType="square"
                     formatter={(value) => <span style={{ fontSize: '11px', fontFamily: 'JetBrains Mono', color: 'var(--text-secondary)' }}>{value}</span>}
                   />
-                  <Bar dataKey="baseline" name="Baseline" fill="var(--accent-blue)" fillOpacity={0.8} radius={[2, 2, 0, 0]} />
-                  <Bar dataKey="load" name="Cognitive Load" fill="var(--accent-amber)" fillOpacity={0.8} radius={[2, 2, 0, 0]} />
+                  <Bar dataKey="baseline" name="Pre-flight" fill="var(--accent-blue)" fillOpacity={0.8} radius={[2, 2, 0, 0]} />
+                  <Bar dataKey="inflight" name="In-flight" fill="var(--accent-amber)" fillOpacity={0.8} radius={[2, 2, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </ChartWrapper>
