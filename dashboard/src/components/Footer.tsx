@@ -1,4 +1,4 @@
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Linkedin } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Problem', href: '#problem' },
@@ -30,7 +30,7 @@ export default function Footer() {
           {/* Left: identity */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <span className="font-mono" style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.7 }}>
-              Carla Monte Sihuro<br />
+              Carla Monté<br />
               TKS Fellow<br />
               March 2026
             </span>
@@ -70,6 +70,24 @@ export default function Footer() {
             >
               <ExternalLink size={14} />
               <span className="font-mono" style={{ fontSize: '12px' }}>github.com/carlamosi/eeg-spaceflight-analysis</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/carlamontesihuro/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: 'var(--text-muted)',
+                transition: 'color 200ms',
+              }}
+              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-secondary)')}
+              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)')}
+            >
+              <Linkedin size={14} />
+              <span className="font-mono" style={{ fontSize: '12px' }}>linkedin.com/in/carlamontesihuro</span>
             </a>
             <span className="font-mono" style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Built with real science.</span>
           </div>
