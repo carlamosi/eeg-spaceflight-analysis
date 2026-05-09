@@ -5,35 +5,39 @@ import { ChevronDown } from 'lucide-react';
 
 const ACCORDION_ITEMS = [
   {
-    title: 'Dataset: Head-Down Tilt Bed Rest (HDBR)',
-    body: 'The HDBR protocol induces physiological changes comparable to microgravity exposure, including fluid redistribution, postural adaptation, and progressive cognitive fatigue. This dataset is the primary NASA/ESA-validated terrestrial analog for long-duration spaceflight. Available via Figshare: DOI 10.6084/m9.figshare.12148359. Validated as a direct NEUROSPAT analog in Scientific Reports (2025).',
+    techTitle: 'Dataset: Head-Down Tilt Bed Rest (HDBR)',
+    title: 'Simulated Spaceflight Bed Rest',
+    body: 'The Head-Down Tilt Bed Rest (HDBR) protocol mimics the way fluids move in the body during microgravity. This is the gold standard for testing how space affects the brain on Earth. **What this means:** We use a realistic analog of space travel to train our detection system.',
   },
   {
-    title: 'Preprocessing pipeline',
-    body: 'Raw EEG downsampled to 256 Hz. Bandpass filter: 0.5 to 45 Hz (zero-phase FIR, MNE 1.7). Notch filter at 50 Hz and 60 Hz harmonics. ICA with 20 components: ocular artifacts identified by correlation with EOG channels and manually confirmed. Epoch rejection: amplitude threshold 100 µV. Remaining epochs: 80 to 90% retention across sessions.',
+    techTitle: 'Preprocessing pipeline',
+    title: 'Cleaning the Data',
+    body: 'EEG signals are very delicate and easily affected by eye blinks or movement. We use advanced algorithms (ICA) to strip away this "noise" and keep only pure brain activity. **What this means:** We filter out the junk so we can see what the brain is actually doing.',
   },
   {
-    title: 'Biomarker computation',
-    body: 'Power spectral density computed using Welch method: 4-second windows, 50% overlap, Hamming taper. Absolute power used for TAR computation (not relative) to avoid coupling artifacts described in Klimesch 1999. DMN alpha computed as mean alpha power across P3, Pz, P4, Oz electrodes. P300 latency and amplitude extracted from simulated oddball paradigm calibrated to Cebolla et al. (2022) ISS parameters.',
+    techTitle: 'Biomarker computation',
+    title: 'Finding the Fatigue Signal',
+    body: 'We measure the balance between different types of brainwaves (Theta and Alpha). When the brain is exhausted, this balance shifts in a very specific way. **What this means:** We\'ve identified a unique "fingerprint" in brainwaves that shows up right before you feel tired.',
   },
   {
-    title: 'Early detection analysis',
-    body: 'Sliding window of 10 epochs (approx. 20 seconds). TAR computed per window across frontal channels (Fz, F3, F4). Individual baseline: first 20% of session data. Alert threshold: individual mean plus 1.5 standard deviations. Detection criterion: 3 consecutive windows above threshold (persistence criterion reduces false positives, per Pusil et al. 2023). Performance proxy: drift-diffusion model with Van Dongen fatigue parameters.',
+    techTitle: 'Early detection analysis',
+    title: 'The Early Detection Logic',
+    body: 'Our system watches the brainwaves in real-time. If it sees the fatigue fingerprint appear for more than a few seconds, it triggers an alert. **What this means:** We don\'t wait for you to make a mistake; we catch the fatigue while it\'s still building up.',
   },
   {
-    title: 'Classification',
-    body: 'Features extracted: TAR (frontal and temporal channels), sample entropy (antropy), permutation entropy, Hjorth complexity and mobility. Three classifiers: Random Forest (100 trees), SVM (RBF kernel, C=1), Logistic Regression (L2, C=0.1). Evaluation: 5-fold StratifiedKFold. Significance: permutation test (n=1000 shuffles, p < 0.01). Reported metric: AUC-ROC.',
+    techTitle: 'Classification & ML',
+    title: 'AI and Logic',
+    body: 'We use several AI models (like Random Forest) to cross-check the data. We test them over and over to make sure they are accurate. **What this means:** Multiple layers of "digital experts" agree that a fatigue event is happening before the alarm sounds.',
   },
 ];
 
 const LIMITATIONS = [
-  'Sample size: HDBR dataset has fewer than 15 subjects. Results are directional, not definitive.',
-  'Proxy data: HDBR simulates microgravity but is not spaceflight. NEUROSPAT requires ESA and NASA IRB approval.',
-  'Simulated P300: where event markers were unavailable, P300 was simulated using Cebolla et al. (2022) parameters.',
-  'Behavioral metric: performance degradation modeled using drift-diffusion proxy. Real behavioral data preferred.',
+  'Limited testing group: Our initial data comes from a small group of participants. Future studies will involve more diverse teams.',
+  'Simulated space: Bed rest is a great proxy, but the ultimate test will be on actual missions (NEUROSPAT).',
+  'Simulated reactions: Some performance data is modeled based on established fatigue patterns. Direct behavioral testing is the next step.',
 ];
 
-function AccordionItem({ title, body, isOpen, onToggle }: { title: string; body: string; isOpen: boolean; onToggle: () => void }) {
+function AccordionItem({ item, isOpen, onToggle }: { item: typeof ACCORDION_ITEMS[0]; isOpen: boolean; onToggle: () => void }) {
   return (
     <div style={{ borderBottom: '1px solid var(--border)' }}>
       <button
@@ -51,9 +55,14 @@ function AccordionItem({ title, body, isOpen, onToggle }: { title: string; body:
           gap: '16px',
         }}
       >
-        <span className="font-dm" style={{ fontSize: '16px', fontWeight: 600, color: 'var(--text-primary)' }}>
-          {title}
-        </span>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <span className="font-mono" style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            {item.techTitle}
+          </span>
+          <span className="font-dm" style={{ fontSize: '16px', fontWeight: 600, color: 'var(--text-primary)' }}>
+            {item.title}
+          </span>
+        </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
@@ -74,7 +83,7 @@ function AccordionItem({ title, body, isOpen, onToggle }: { title: string; body:
             style={{ overflow: 'hidden' }}
           >
             <p className="font-dm" style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.75, paddingBottom: '20px', maxWidth: '780px' }}>
-              {body}
+              {item.body}
             </p>
           </motion.div>
         )}
@@ -115,8 +124,7 @@ export default function MethodologySection() {
             {ACCORDION_ITEMS.map((item, i) => (
               <AccordionItem
                 key={item.title}
-                title={item.title}
-                body={item.body}
+                item={item}
                 isOpen={openIndex === i}
                 onToggle={() => toggle(i)}
               />

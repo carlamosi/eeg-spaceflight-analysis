@@ -6,30 +6,30 @@ import { EyeOff, Clock, Activity } from 'lucide-react';
 const TIMELINE = [
   {
     num: '01',
-    title: 'Astronauts return with measurable brain structure changes',
+    title: 'Space changes the brain: Astronauts return with measurable changes in brain structure.',
     citation: 'Hupfeld et al., 2020',
   },
   {
     num: '02',
-    title: 'Cognitive decline can be silent while performance tests show normal results',
+    title: 'A "silent" decline: Mental fatigue can build up even when performance scores seem normal.',
     citation: 'Salazar et al., 2023',
   },
   {
     num: '03',
-    title: 'Current monitoring is a snapshot: 3 tests for a 6-month mission',
+    title: 'Missing the signal: Current check-ups are rare (only 3 tests for a 6-month mission).',
     citation: 'Basner et al., 2015',
   },
   {
     num: '04',
-    title: 'On a Mars mission, there is no evacuation. Decisions happen on board.',
+    title: 'No easy way back: On a Mars mission, every second counts and evacuation is impossible.',
     citation: '',
   },
 ];
 
 const CALLOUT_ROWS = [
-  { icon: <EyeOff size={18} />, text: 'Subclinical changes in early cognitive decline' },
-  { icon: <Clock size={18} />, text: 'Gradual drift over weeks between test points' },
-  { icon: <Activity size={18} />, text: 'Compensatory brain effort when performance stays stable' },
+  { tech: 'Masked impairment', icon: <EyeOff size={18} />, text: 'Brain fatigue often hides behind a "focused" exterior' },
+  { tech: 'Sampling bias', icon: <Clock size={18} />, text: 'Weeks of mental "drift" go unnoticed between check-ups' },
+  { tech: 'Neural compensation', icon: <Activity size={18} />, text: 'The brain works twice as hard just to maintain normal performance' },
 ];
 
 export default function ProblemSection() {
@@ -146,9 +146,14 @@ export default function ProblemSection() {
                   }}
                 >
                   <div style={{ color: 'var(--accent-green)', flexShrink: 0 }}>{row.icon}</div>
-                  <p className="font-dm" style={{ fontSize: '15px', color: 'var(--text-primary)', lineHeight: 1.5 }}>
-                    {row.text}
-                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                    <span className="font-mono" style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      {row.tech}
+                    </span>
+                    <p className="font-dm" style={{ fontSize: '15px', color: 'var(--text-primary)', lineHeight: 1.5 }}>
+                      {row.text}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

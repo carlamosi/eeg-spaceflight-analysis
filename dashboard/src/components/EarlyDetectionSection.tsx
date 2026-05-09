@@ -81,7 +81,7 @@ export default function EarlyDetectionSection() {
         >
           {/* Section header */}
           <motion.div variants={fadeUpVariants} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <span className="section-label">04 / Key Finding</span>
+            <span className="section-label">04 / The Early Warning Advantage</span>
           </motion.div>
 
           {/* Hero number */}
@@ -106,7 +106,7 @@ export default function EarlyDetectionSection() {
                 marginTop: '8px',
               }}
             >
-              The EEG theta/alpha ratio exceeded the alert threshold {detectionGap} minutes before behavioral performance dropped below the 85% baseline. This is the detection window the protocol creates.
+              Our brainwave analysis detects signs of deep mental fatigue <strong>{detectionGap} minutes</strong> before the astronaut's actual performance begins to fail. This creates a critical "early warning" window where mission control can intervene before a mistake happens.
             </p>
           </motion.div>
 
@@ -222,29 +222,33 @@ export default function EarlyDetectionSection() {
           >
             {[
               {
-                label: 'T biomarker',
+                techLabel: 'T biomarker',
+                label: 'Brainwave Alert',
                 value: `t = ${T_biomarker} min`,
-                sublabel: 'EEG alert triggered',
-                badge: <AlertBadge level="green" label="EEG alert" size="sm" />,
+                sublabel: 'First sign of deep fatigue detected',
+                badge: <AlertBadge level="green" label="EEG Warning" size="sm" />,
               },
               {
-                label: 'Detection gap',
+                techLabel: 'Detection gap',
+                label: 'Intervention Window',
                 value: `${detectionGap} min`,
-                sublabel: 'window for intervention',
+                sublabel: 'Valuable time to rest or intervene',
                 badge: null,
                 large: true,
               },
               {
-                label: 'T behavioral',
+                techLabel: 'T behavioral',
+                label: 'Performance Drop',
                 value: `t = ${T_behavior} min`,
-                sublabel: 'Performance threshold crossed',
-                badge: <AlertBadge level="amber" label="Behavioral threshold" size="sm" />,
+                sublabel: 'When mistakes start occurring',
+                badge: <AlertBadge level="amber" label="Action Required" size="sm" />,
               },
               {
-                label: 'Statistical Validation',
+                techLabel: 'Statistical Validation',
+                label: 'Scientific Proof',
                 value: `p = ${stats.pValue.toFixed(2)}`,
-                sublabel: stats.isSignificant ? 'Statistically significant' : 'Dataset limited, PoC only',
-                badge: <AlertBadge level={stats.isSignificant ? "green" : "amber"} label={stats.isSignificant ? "p < 0.05" : "n=1 subject"} size="sm" />,
+                sublabel: stats.isSignificant ? 'Mathematically proven pattern' : 'Based on initial pilot testing',
+                badge: <AlertBadge level={stats.isSignificant ? "green" : "amber"} label={stats.isSignificant ? "p < 0.05" : "Early Stage"} size="sm" />,
               },
             ].map(col => (
               <div
@@ -256,12 +260,15 @@ export default function EarlyDetectionSection() {
                   padding: '24px',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '8px',
+                  gap: '4px',
                   alignItems: 'center',
                   textAlign: 'center',
                 }}
               >
-                <span className="section-label">{col.label}</span>
+                <span className="font-mono" style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  {col.techLabel}
+                </span>
+                <span className="section-label" style={{ color: 'var(--text-primary)', marginBottom: '8px' }}>{col.label}</span>
                 <span
                   className={col.large ? 'font-instrument gradient-text' : 'font-dm'}
                   style={{

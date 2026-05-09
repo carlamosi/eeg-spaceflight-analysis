@@ -41,9 +41,9 @@ export default function MLSection() {
         >
           {/* Header */}
           <motion.div variants={fadeUpVariants} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <span className="section-label">05 / Machine Learning</span>
+            <span className="section-label">05 / Predictive Intelligence</span>
             <h2 className="font-dm" style={{ fontSize: 'clamp(24px, 3.5vw, 40px)', fontWeight: 600, color: 'var(--text-primary)' }}>
-              Which signal predicts cognitive decline first?
+              How reliably can we predict a mistake?
             </h2>
           </motion.div>
 
@@ -59,9 +59,12 @@ export default function MLSection() {
             {/* Panel 1: ROC curves */}
             <div className="card-base" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <h3 className="font-dm" style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)' }}>
-                  ROC Curves
-                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                  <span className="font-mono" style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>ROC Curves</span>
+                  <h3 className="font-dm" style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)' }}>
+                    Prediction Accuracy
+                  </h3>
+                </div>
                 <div style={{ display: 'flex', gap: '12px' }}>
                   {[
                     { label: `RF (AUC=${ml_AUC.rf})`, color: 'var(--accent-blue)' },
@@ -103,16 +106,22 @@ export default function MLSection() {
                   </LineChart>
                 </ResponsiveContainer>
               </div>
+              <p className="font-dm" style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                The higher the curve, the more accurately the AI can distinguish between a focused mind and an exhausted one.
+              </p>
               <p className="font-mono" style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                5-fold stratified cross-validation · ICA EOG rejection
+                5-fold stratified cross-validation · ICA Noise Filtering
               </p>
             </div>
 
             {/* Panel 2: Feature importance */}
             <div className="card-base" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <h3 className="font-dm" style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)' }}>
-                Feature Importance
-              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                <span className="font-mono" style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Feature Importance</span>
+                <h3 className="font-dm" style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)' }}>
+                  The "Fatigue Signature"
+                </h3>
+              </div>
               <div style={{ height: '280px' }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
@@ -157,6 +166,9 @@ export default function MLSection() {
                   </BarChart>
                 </ResponsiveContainer>
               </div>
+              <p className="font-dm" style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                Our analysis shows that the "TAR" (Brainwave Ratio) is the most powerful predictor of mental burnout.
+              </p>
               {/* Best predictor badge */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span
