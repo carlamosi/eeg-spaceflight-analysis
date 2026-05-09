@@ -55,7 +55,7 @@ export default function Footer() {
           {/* Right: GitHub + tag */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <a
-              href="https://github.com/camosi/eeg-spaceflight-analysis"
+              href="https://github.com/carlamosi/eeg-spaceflight-analysis"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -69,7 +69,7 @@ export default function Footer() {
               onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)')}
             >
               <ExternalLink size={14} />
-              <span className="font-mono" style={{ fontSize: '12px' }}>github.com/camosi/eeg-spaceflight-analysis</span>
+              <span className="font-mono" style={{ fontSize: '12px' }}>github.com/carlamosi/eeg-spaceflight-analysis</span>
             </a>
             <span className="font-mono" style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Built with real science.</span>
           </div>
