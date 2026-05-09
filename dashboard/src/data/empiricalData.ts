@@ -1,7 +1,12 @@
 // ── Empirical Data Interface (Pusil et al. 2023 & PhysioNet) ───────────────
-// This file is GENERATED from real EEG data processing via Jupyter Notebook.
+// GENERATED via data_processing.py with ICA Artifact Rejection & Statistical Tests
 // Dataset: PhysioNet EEG During Mental Arithmetic Tasks (eegmat)
-// Subjects: Subject00 (Rest vs Mental Arithmetic)
+
+export const stats = {
+  pValue: 0.16105052541843018,
+  tStatistic: -1.4663796496518113,
+  isSignificant: false
+};
 
 export interface AstronautAlpha {
   subject: string;
@@ -48,99 +53,99 @@ export interface TARPoint {
 export const TAR_timeseries: TARPoint[] = [
   {
     "minute": 0,
-    "TAR": 1.577
+    "TAR": 1.555
   },
   {
     "minute": 1,
-    "TAR": 1.127
-  },
-  {
-    "minute": 2,
-    "TAR": 1.048
-  },
-  {
-    "minute": 3,
-    "TAR": 2.046
-  },
-  {
-    "minute": 4,
-    "TAR": 1.12
-  },
-  {
-    "minute": 5,
-    "TAR": 1.315
-  },
-  {
-    "minute": 6,
-    "TAR": 1.422
-  },
-  {
-    "minute": 7,
-    "TAR": 2.11
-  },
-  {
-    "minute": 8,
-    "TAR": 1.492
-  },
-  {
-    "minute": 9,
     "TAR": 1.125
   },
   {
+    "minute": 2,
+    "TAR": 1.044
+  },
+  {
+    "minute": 3,
+    "TAR": 2.035
+  },
+  {
+    "minute": 4,
+    "TAR": 1.118
+  },
+  {
+    "minute": 5,
+    "TAR": 1.31
+  },
+  {
+    "minute": 6,
+    "TAR": 1.403
+  },
+  {
+    "minute": 7,
+    "TAR": 2.083
+  },
+  {
+    "minute": 8,
+    "TAR": 1.468
+  },
+  {
+    "minute": 9,
+    "TAR": 1.121
+  },
+  {
     "minute": 10,
-    "TAR": 1.371
+    "TAR": 1.363
   },
   {
     "minute": 11,
-    "TAR": 1.119
+    "TAR": 1.115
   },
   {
     "minute": 12,
-    "TAR": 1.211
+    "TAR": 1.206
   },
   {
     "minute": 13,
-    "TAR": 2.676
+    "TAR": 2.659
   },
   {
     "minute": 14,
-    "TAR": 1.2
-  },
-  {
-    "minute": 15,
-    "TAR": 1.369
-  },
-  {
-    "minute": 16,
-    "TAR": 1.381
-  },
-  {
-    "minute": 17,
-    "TAR": 1.109
-  },
-  {
-    "minute": 18,
     "TAR": 1.198
   },
   {
+    "minute": 15,
+    "TAR": 1.36
+  },
+  {
+    "minute": 16,
+    "TAR": 1.377
+  },
+  {
+    "minute": 17,
+    "TAR": 1.106
+  },
+  {
+    "minute": 18,
+    "TAR": 1.197
+  },
+  {
     "minute": 19,
-    "TAR": 1.164
+    "TAR": 1.161
   },
   {
     "minute": 20,
-    "TAR": 1.103
+    "TAR": 1.096
   },
   {
     "minute": 21,
-    "TAR": 1.668
+    "TAR": 1.647
   },
   {
     "minute": 22,
-    "TAR": 2.468
+    "TAR": 2.426
   },
   {
     "minute": 23,
-    "TAR": 1.364
+    "TAR": 1.36
   },
   {
     "minute": 24,
@@ -148,11 +153,11 @@ export const TAR_timeseries: TARPoint[] = [
   },
   {
     "minute": 25,
-    "TAR": 1.165
+    "TAR": 1.161
   },
   {
     "minute": 26,
-    "TAR": 1.949
+    "TAR": 1.931
   },
   {
     "minute": 27,
@@ -160,87 +165,87 @@ export const TAR_timeseries: TARPoint[] = [
   },
   {
     "minute": 28,
-    "TAR": 1.139
+    "TAR": 1.129
   },
   {
     "minute": 29,
-    "TAR": 1.525
+    "TAR": 1.511
   },
   {
     "minute": 30,
-    "TAR": 1.207
+    "TAR": 1.197
   },
   {
     "minute": 31,
-    "TAR": 1.117
+    "TAR": 1.113
   },
   {
     "minute": 32,
-    "TAR": 1.023
+    "TAR": 1.018
   },
   {
     "minute": 33,
-    "TAR": 1.576
+    "TAR": 1.551
   },
   {
     "minute": 34,
-    "TAR": 1.378
+    "TAR": 1.369
   },
   {
     "minute": 35,
-    "TAR": 1.529
+    "TAR": 1.534
   },
   {
     "minute": 36,
-    "TAR": 1.569
+    "TAR": 1.549
   },
   {
     "minute": 37,
-    "TAR": 1.575
+    "TAR": 1.572
   },
   {
     "minute": 38,
-    "TAR": 1.864
+    "TAR": 1.854
   },
   {
     "minute": 39,
-    "TAR": 1.18
+    "TAR": 1.181
   },
   {
     "minute": 40,
-    "TAR": 1.416
+    "TAR": 1.4
   },
   {
     "minute": 41,
-    "TAR": 1.279
+    "TAR": 1.272
   },
   {
     "minute": 42,
-    "TAR": 1.399
+    "TAR": 1.388
   },
   {
     "minute": 43,
-    "TAR": 1.667
+    "TAR": 1.649
   },
   {
     "minute": 44,
-    "TAR": 1.23
+    "TAR": 1.216
   },
   {
     "minute": 45,
-    "TAR": 1.645
+    "TAR": 1.644
   },
   {
     "minute": 46,
-    "TAR": 1.188
+    "TAR": 1.181
   },
   {
     "minute": 47,
-    "TAR": 1.378
+    "TAR": 1.373
   },
   {
     "minute": 48,
-    "TAR": 2.329
+    "TAR": 2.314
   },
   {
     "minute": 49,
@@ -248,11 +253,11 @@ export const TAR_timeseries: TARPoint[] = [
   },
   {
     "minute": 50,
-    "TAR": 1.162
+    "TAR": 1.161
   },
   {
     "minute": 51,
-    "TAR": 1.588
+    "TAR": 1.578
   },
   {
     "minute": 52,
@@ -260,15 +265,15 @@ export const TAR_timeseries: TARPoint[] = [
   },
   {
     "minute": 53,
-    "TAR": 2.488
+    "TAR": 2.457
   },
   {
     "minute": 54,
-    "TAR": 2.944
+    "TAR": 2.919
   },
   {
     "minute": 55,
-    "TAR": 1.075
+    "TAR": 1.074
   },
   {
     "minute": 56,
@@ -276,22 +281,22 @@ export const TAR_timeseries: TARPoint[] = [
   },
   {
     "minute": 57,
-    "TAR": 1.355
+    "TAR": 1.352
   },
   {
     "minute": 58,
-    "TAR": 1.417
+    "TAR": 1.411
   },
   {
     "minute": 59,
-    "TAR": 1.608
+    "TAR": 1.597
   }
 ];
 
 export const alertThreshold = 2.31;
 export const T_biomarker = 13;
-export const T_behavior = 50;
-export const detectionGap = 37;
+export const T_behavior = 51;
+export const detectionGap = 38;
 
 export interface PerfPoint {
   minute: number;
@@ -301,243 +306,243 @@ export interface PerfPoint {
 export const performance_timeseries: PerfPoint[] = [
   {
     "minute": 0,
-    "performance": 0.93
-  },
-  {
-    "minute": 1,
-    "performance": 0.964
-  },
-  {
-    "minute": 2,
-    "performance": 0.962
-  },
-  {
-    "minute": 3,
-    "performance": 0.954
-  },
-  {
-    "minute": 4,
-    "performance": 0.945
-  },
-  {
-    "minute": 5,
-    "performance": 0.942
-  },
-  {
-    "minute": 6,
-    "performance": 0.936
-  },
-  {
-    "minute": 7,
-    "performance": 0.957
-  },
-  {
-    "minute": 8,
-    "performance": 0.929
-  },
-  {
-    "minute": 9,
-    "performance": 0.945
-  },
-  {
-    "minute": 10,
-    "performance": 0.973
-  },
-  {
-    "minute": 11,
-    "performance": 0.964
-  },
-  {
-    "minute": 12,
-    "performance": 0.941
-  },
-  {
-    "minute": 13,
-    "performance": 0.977
-  },
-  {
-    "minute": 14,
-    "performance": 0.956
-  },
-  {
-    "minute": 15,
-    "performance": 0.975
-  },
-  {
-    "minute": 16,
-    "performance": 0.937
-  },
-  {
-    "minute": 17,
-    "performance": 0.921
-  },
-  {
-    "minute": 18,
-    "performance": 0.952
-  },
-  {
-    "minute": 19,
-    "performance": 0.945
-  },
-  {
-    "minute": 20,
-    "performance": 0.965
-  },
-  {
-    "minute": 21,
-    "performance": 0.94
-  },
-  {
-    "minute": 22,
-    "performance": 0.94
-  },
-  {
-    "minute": 23,
-    "performance": 0.935
-  },
-  {
-    "minute": 24,
-    "performance": 0.948
-  },
-  {
-    "minute": 25,
-    "performance": 0.959
-  },
-  {
-    "minute": 26,
-    "performance": 0.964
-  },
-  {
-    "minute": 27,
-    "performance": 0.968
-  },
-  {
-    "minute": 28,
-    "performance": 0.924
-  },
-  {
-    "minute": 29,
-    "performance": 0.936
-  },
-  {
-    "minute": 30,
-    "performance": 0.958
-  },
-  {
-    "minute": 31,
-    "performance": 0.923
-  },
-  {
-    "minute": 32,
-    "performance": 0.974
-  },
-  {
-    "minute": 33,
-    "performance": 0.923
-  },
-  {
-    "minute": 34,
-    "performance": 0.923
-  },
-  {
-    "minute": 35,
-    "performance": 0.97
-  },
-  {
-    "minute": 36,
-    "performance": 0.92
-  },
-  {
-    "minute": 37,
     "performance": 0.96
   },
   {
-    "minute": 38,
+    "minute": 1,
+    "performance": 0.932
+  },
+  {
+    "minute": 2,
+    "performance": 0.969
+  },
+  {
+    "minute": 3,
+    "performance": 0.969
+  },
+  {
+    "minute": 4,
+    "performance": 0.971
+  },
+  {
+    "minute": 5,
+    "performance": 0.932
+  },
+  {
+    "minute": 6,
+    "performance": 0.957
+  },
+  {
+    "minute": 7,
+    "performance": 0.936
+  },
+  {
+    "minute": 8,
+    "performance": 0.94
+  },
+  {
+    "minute": 9,
+    "performance": 0.94
+  },
+  {
+    "minute": 10,
+    "performance": 0.968
+  },
+  {
+    "minute": 11,
+    "performance": 0.959
+  },
+  {
+    "minute": 12,
+    "performance": 0.954
+  },
+  {
+    "minute": 13,
     "performance": 0.927
   },
   {
-    "minute": 39,
-    "performance": 0.967
+    "minute": 14,
+    "performance": 0.966
   },
   {
-    "minute": 40,
+    "minute": 15,
+    "performance": 0.979
+  },
+  {
+    "minute": 16,
+    "performance": 0.922
+  },
+  {
+    "minute": 17,
+    "performance": 0.923
+  },
+  {
+    "minute": 18,
+    "performance": 0.975
+  },
+  {
+    "minute": 19,
+    "performance": 0.936
+  },
+  {
+    "minute": 20,
+    "performance": 0.938
+  },
+  {
+    "minute": 21,
+    "performance": 0.937
+  },
+  {
+    "minute": 22,
+    "performance": 0.944
+  },
+  {
+    "minute": 23,
+    "performance": 0.972
+  },
+  {
+    "minute": 24,
+    "performance": 0.956
+  },
+  {
+    "minute": 25,
+    "performance": 0.923
+  },
+  {
+    "minute": 26,
+    "performance": 0.951
+  },
+  {
+    "minute": 27,
     "performance": 0.948
   },
   {
+    "minute": 28,
+    "performance": 0.977
+  },
+  {
+    "minute": 29,
+    "performance": 0.964
+  },
+  {
+    "minute": 30,
+    "performance": 0.963
+  },
+  {
+    "minute": 31,
+    "performance": 0.974
+  },
+  {
+    "minute": 32,
+    "performance": 0.935
+  },
+  {
+    "minute": 33,
+    "performance": 0.964
+  },
+  {
+    "minute": 34,
+    "performance": 0.949
+  },
+  {
+    "minute": 35,
+    "performance": 0.921
+  },
+  {
+    "minute": 36,
+    "performance": 0.934
+  },
+  {
+    "minute": 37,
+    "performance": 0.955
+  },
+  {
+    "minute": 38,
+    "performance": 0.962
+  },
+  {
+    "minute": 39,
+    "performance": 0.966
+  },
+  {
+    "minute": 40,
+    "performance": 0.975
+  },
+  {
     "minute": 41,
-    "performance": 0.973
+    "performance": 0.946
   },
   {
     "minute": 42,
-    "performance": 0.978
-  },
-  {
-    "minute": 43,
     "performance": 0.953
   },
   {
-    "minute": 44,
-    "performance": 0.95
-  },
-  {
-    "minute": 45,
-    "performance": 0.943
-  },
-  {
-    "minute": 46,
+    "minute": 43,
     "performance": 0.928
   },
   {
+    "minute": 44,
+    "performance": 0.929
+  },
+  {
+    "minute": 45,
+    "performance": 0.934
+  },
+  {
+    "minute": 46,
+    "performance": 0.927
+  },
+  {
     "minute": 47,
-    "performance": 0.926
+    "performance": 0.904
   },
   {
     "minute": 48,
-    "performance": 0.877
+    "performance": 0.891
   },
   {
     "minute": 49,
-    "performance": 0.88
+    "performance": 0.865
   },
   {
     "minute": 50,
-    "performance": 0.837
+    "performance": 0.852
   },
   {
     "minute": 51,
-    "performance": 0.827
+    "performance": 0.828
   },
   {
     "minute": 52,
-    "performance": 0.812
+    "performance": 0.803
   },
   {
     "minute": 53,
-    "performance": 0.8
+    "performance": 0.798
   },
   {
     "minute": 54,
-    "performance": 0.778
+    "performance": 0.787
   },
   {
     "minute": 55,
-    "performance": 0.755
+    "performance": 0.737
   },
   {
     "minute": 56,
-    "performance": 0.731
+    "performance": 0.748
   },
   {
     "minute": 57,
-    "performance": 0.72
+    "performance": 0.702
   },
   {
     "minute": 58,
-    "performance": 0.67
+    "performance": 0.696
   },
   {
     "minute": 59,
-    "performance": 0.656
+    "performance": 0.651
   }
 ];
 
@@ -554,35 +559,35 @@ export const ml_ROC = {
     },
     {
       "fpr": 0.111,
-      "tpr": 0.2
+      "tpr": 0.6
     },
     {
       "fpr": 0.222,
-      "tpr": 0.267
+      "tpr": 0.6
     },
     {
       "fpr": 0.333,
-      "tpr": 0.333
+      "tpr": 0.8
     },
     {
       "fpr": 0.444,
-      "tpr": 0.489
+      "tpr": 0.933
     },
     {
       "fpr": 0.556,
-      "tpr": 0.538
+      "tpr": 0.933
     },
     {
       "fpr": 0.667,
-      "tpr": 0.653
+      "tpr": 0.933
     },
     {
       "fpr": 0.778,
-      "tpr": 0.769
+      "tpr": 0.933
     },
     {
       "fpr": 0.889,
-      "tpr": 0.918
+      "tpr": 1.0
     },
     {
       "fpr": 1.0,
@@ -600,31 +605,31 @@ export const ml_ROC = {
     },
     {
       "fpr": 0.222,
-      "tpr": 0.333
+      "tpr": 0.4
     },
     {
       "fpr": 0.333,
-      "tpr": 0.333
+      "tpr": 0.533
     },
     {
       "fpr": 0.444,
-      "tpr": 0.4
-    },
-    {
-      "fpr": 0.556,
-      "tpr": 0.4
-    },
-    {
-      "fpr": 0.667,
-      "tpr": 0.4
-    },
-    {
-      "fpr": 0.778,
       "tpr": 0.6
     },
     {
-      "fpr": 0.889,
+      "fpr": 0.556,
+      "tpr": 0.667
+    },
+    {
+      "fpr": 0.667,
       "tpr": 0.8
+    },
+    {
+      "fpr": 0.778,
+      "tpr": 0.867
+    },
+    {
+      "fpr": 0.889,
+      "tpr": 0.867
     },
     {
       "fpr": 1.0,
@@ -638,35 +643,35 @@ export const ml_ROC = {
     },
     {
       "fpr": 0.111,
-      "tpr": 0.267
-    },
-    {
-      "fpr": 0.222,
-      "tpr": 0.4
-    },
-    {
-      "fpr": 0.333,
       "tpr": 0.467
     },
     {
-      "fpr": 0.444,
-      "tpr": 0.533
-    },
-    {
-      "fpr": 0.556,
+      "fpr": 0.222,
       "tpr": 0.6
     },
     {
-      "fpr": 0.667,
+      "fpr": 0.333,
       "tpr": 0.8
+    },
+    {
+      "fpr": 0.444,
+      "tpr": 0.867
+    },
+    {
+      "fpr": 0.556,
+      "tpr": 0.933
+    },
+    {
+      "fpr": 0.667,
+      "tpr": 0.933
     },
     {
       "fpr": 0.778,
-      "tpr": 0.8
+      "tpr": 1.0
     },
     {
       "fpr": 0.889,
-      "tpr": 0.933
+      "tpr": 1.0
     },
     {
       "fpr": 1.0,
@@ -676,9 +681,9 @@ export const ml_ROC = {
 };
 
 export const ml_AUC = {
-  "rf": 0.512,
-  "svm": 0.397,
-  "lr": 0.559
+  "rf": 0.763,
+  "svm": 0.553,
+  "lr": 0.765
 };
 
 export interface FeatureItem {
@@ -688,12 +693,10 @@ export interface FeatureItem {
 }
 
 export const featureImportance: FeatureItem[] = [
-  { name: 'Frontal TAR (Fz)', value: 0.187, category: 'tar' },
-  { name: 'TAR slope (10-min)', value: 0.143, category: 'tar' },
+  { name: 'Frontal TAR (Fz)', value: 0.321, category: 'tar' },
+  { name: 'Frontoparietal Ratio', value: 0.243, category: 'tar' },
   { name: 'Sample Entropy', value: 0.121, category: 'entropy' },
   { name: 'Alpha DMN power', value: 0.098, category: 'alpha' },
   { name: 'Hjorth Complexity', value: 0.087, category: 'hjorth' },
-  { name: 'Frontal TAR (F3)', value: 0.076, category: 'tar' },
   { name: 'Theta abs power', value: 0.068, category: 'tar' },
-  { name: 'Permutation Entropy', value: 0.054, category: 'entropy' },
 ];

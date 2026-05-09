@@ -6,7 +6,7 @@ import {
   ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   ReferenceLine, ReferenceArea, ResponsiveContainer,
 } from 'recharts';
-import { TAR_timeseries, performance_timeseries, alertThreshold, T_biomarker, T_behavior, detectionGap } from '../data/empiricalData';
+import { TAR_timeseries, performance_timeseries, alertThreshold, T_biomarker, T_behavior, detectionGap, stats } from '../data/empiricalData';
 
 // Merge TAR + performance into one array, sampled every 3 points
 const mergedData = TAR_timeseries
@@ -239,6 +239,12 @@ export default function EarlyDetectionSection() {
                 value: `t = ${T_behavior} min`,
                 sublabel: 'Performance threshold crossed',
                 badge: <AlertBadge level="amber" label="Behavioral threshold" size="sm" />,
+              },
+              {
+                label: 'Statistical Validation',
+                value: `p = ${stats.pValue.toFixed(2)}`,
+                sublabel: stats.isSignificant ? 'Statistically significant' : 'Dataset limited, PoC only',
+                badge: <AlertBadge level={stats.isSignificant ? "green" : "amber"} label={stats.isSignificant ? "p < 0.05" : "n=1 subject"} size="sm" />,
               },
             ].map(col => (
               <div

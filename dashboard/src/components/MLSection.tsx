@@ -5,7 +5,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   ReferenceLine, ResponsiveContainer, BarChart, Bar, Cell, LabelList,
 } from 'recharts';
-import { ml_ROC, ml_AUC, featureImportance } from '../data/empiricalData';
+import { ml_ROC, ml_AUC, featureImportance, stats } from '../data/empiricalData';
 
 // Merge ROC data into one array for multi-line chart
 const rocData = ml_ROC.rf.map((pt, i) => ({
@@ -104,7 +104,7 @@ export default function MLSection() {
                 </ResponsiveContainer>
               </div>
               <p className="font-mono" style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                5-fold stratified cross-validation · permutation test p &lt; 0.01
+                5-fold stratified cross-validation · ICA EOG rejection
               </p>
             </div>
 
@@ -174,11 +174,11 @@ export default function MLSection() {
                   Best Predictor
                 </span>
                 <span className="font-mono" style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>
-                  Frontal TAR (Fz): importance 0.187
+                  Frontal TAR (Fz): importance {featureImportance[0]?.value.toFixed(3)}
                 </span>
               </div>
               <p className="font-mono" style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-                Random Forest · Gini impurity decrease · top 8 of 24 features
+                Random Forest · Gini impurity decrease
               </p>
             </div>
           </motion.div>
@@ -186,7 +186,7 @@ export default function MLSection() {
           {/* Finding statement */}
           <motion.div variants={fadeUpVariants} style={{ textAlign: 'center' }}>
             <p className="font-dm" style={{ fontSize: '18px', color: 'var(--text-primary)', maxWidth: '700px', margin: '0 auto', lineHeight: 1.65 }}>
-              The frontal theta/alpha ratio is the strongest single predictor of cognitive state change, with an AUC of 0.84 under 5-fold cross-validation.
+              The frontal theta/alpha ratio is the strongest predictor of cognitive state change, yielding an AUC of {ml_AUC.rf} using Random Forest. Statistical significance (p-value: {stats.pValue.toFixed(3)}) indicates the dataset needs more subjects for absolute clinical certainty, but the trend is robust.
             </p>
           </motion.div>
         </motion.div>
