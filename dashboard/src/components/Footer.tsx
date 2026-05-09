@@ -1,4 +1,4 @@
-import { ExternalLink, Linkedin } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Problem', href: '#problem' },
@@ -31,7 +31,6 @@ export default function Footer() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <span className="font-mono" style={{ fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.7 }}>
               Carla Monté<br />
-              TKS Fellow<br />
               March 2026
             </span>
           </div>
